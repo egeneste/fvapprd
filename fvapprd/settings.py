@@ -25,7 +25,7 @@ SECRET_KEY = 's24vtm(ta1=hql++8vc%t8in++fb-qmq6*4$h)^s8p-)905p5_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['forest-vigilance-rd.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
