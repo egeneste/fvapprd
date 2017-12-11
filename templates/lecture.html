@@ -1,0 +1,42 @@
+{% extends 'index.html' %}
+{% block title %}Lectura{% endblock %}#}
+{% block content %} {% endblock %}
+{% block table %}
+
+    <thead id="head-th">
+    <hr/>
+    <tr>
+        <td>Modulo</td>
+        <td>Temperatura</td>
+        <td>Humedad</td>
+        <td>Humo</td>
+
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    {% for ob in Object_list %}
+        <tr>
+            <td>{{ ob.modulo }} </td>
+            <td>{{ ob.temperatura }}C</td>
+            <td>{{ ob.humedad }}%</td>
+            <td>{{ ob.timestamp }}</td>
+
+
+
+            {#                <td>{{ ob.es }}</td>#}
+        </tr>
+    {% endfor %}
+            <td>{{ ob.modulo }}</td>
+            <td>{{ ob.temperatura }}</td>
+            <td>{{ ob.humedad }}</td>
+            <td>{{ ob.humo }}</td>
+            <td>{{ ob.sonido }}</td>
+
+    <!--<script src="scripts/main.js"></script>-->
+    </tbody>
+
+{% endblock %}

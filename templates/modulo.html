@@ -1,0 +1,76 @@
+{% extends 'index.html' %}
+{% load staticfiles %}
+{% block title %}Clientes{% endblock %}
+{% block content %} {% endblock %}
+
+
+{% block filter %}
+
+   <div style="padding-top: 20px">
+        <div class="input-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+            <input type="text" id="myInput" placeholder="Favor ingrese el NIC" name="nic" class="form-control" >
+        </div>
+    </div>
+    <hr/>
+{% endblock %}
+{% block table %}
+
+    <thead id="head-th">
+    <tr>
+        <td>Modulo</td>
+        <td>s_temperatura</td>
+        <td>s_humedad</td>
+        <td>s_sonido</td>
+        <td>s_humo</td>
+        <td>latitud</td>
+        <td>longitud</td>
+        <td>Link Google Map</td>
+    </tr>
+    </thead>
+
+    <tbody>
+
+        {% for ob in Object_list %}
+
+            <tr onload="">
+                <td>{{ ob.modulo }}</td>
+                <td>{{ ob.s_temperatura }}</td>
+                <td> {{ ob.s_humedad }}</td>
+                <td> {{ ob.s_sonido }}</td>
+                <td> {{ ob.s_humo }}</td>
+                <td> {{ ob.latitud }}</td>
+                <td> {{ ob.longitud }}</td>
+
+
+                <td>
+                    <a href='{{ ob.ubicacion }}'
+                       style="color: #122b40" target="_blank">Ubicacion</a></td>
+
+            </tr>
+
+        {% endfor %}
+
+        <tr>
+            <td>{{ ob.modulo }}</td>
+            <td>{{ ob.s_temperatura }}</td>
+            <td> {{ ob.s_humedad }}</td>
+            <td> {{ ob.s_sonido }}</td>
+            <td> {{ ob.s_humo }}</td>
+            <td> {{ ob.latitud }}</td>
+            <td> {{ ob.longitud }}</td>
+
+
+            <td>
+                <a href='{{ ob.ubicacion }}'
+                   style="color: #122b40" target="_blank"><!--Ubicacion-->
+                </a>
+            </td>
+
+        </tr>
+
+
+    </tbody>{% endblock %}
+
+
+

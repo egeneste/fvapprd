@@ -1,0 +1,165 @@
+{% extends 'index.html' %}
+
+{% load staticfiles %}
+{% block contenedor %}{% endblock %}
+{% block calendario %}{% endblock %}
+{% block filter %}{% endblock %}
+{%  block main %}
+
+<input id="pac-input" class="controls" type="text" placeholder="Ingrese el NIC">
+<div id="map" style="width:100%; height: 800px; padding-top: 100px;"></div>
+
+
+<script>
+
+function myMap() {
+    var map;
+    var centre = new google.maps.LatLng(19.45037156, -70.69621887);
+
+    var bounds = new google.maps.LatLngBounds();
+    var mapOptions = {
+        mapTypeId: 'roadmap',
+        center: centre
+
+    };
+
+
+
+    // Display a map on the web page
+    map = new google.maps.Map(document.getElementById("map"), mapOptions);
+            // Create the search box and link it to the UI element.
+        var input = document.getElementById('pac-input')
+        //var searchBox = new google.maps.places.SearchBox(input);
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+    //map.setTilt(0);
+    var don="";
+    var image='';
+   // var xhttp = new XMLHttpRequest();
+    var infoWindow = new google.maps.InfoWindow(), marker, i;
+
+
+
+
+
+$(document).ready(function(){
+    var capt="";
+
+        $.get("/interface/mapa", function(data, status){
+            // Typical action to be performed when the document is ready:
+            // document.getElementById("demo").innerHTML = xhttp.responseText;
+            //console.log(this.responseText)
+            don =
+            coordon = JSON.parse(data)
+            setMap(coordon);
+            //console.log(data)
+        // Set zoom level
+        var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
+            this.setZoom(10);
+            this.setCenter(centre)
+            google.maps.event.removeListener(boundsListener);
+        });
+
+
+
+            input.addEventListener('keyup', function (e) {
+               if(e.which == 13) {
+                   findMarker(coordon,input.value);
+
+                }
+            });
+
+
+       });
+        function setMap(coor) {
+                            for (i = 0; i < coor.length; i++) {
+
+                    image='/static/images/marker2.png';
+
+
+                var position = new google.maps.LatLng(coor[i].fields.latitud, coor[i].fields.longitud);
+                bounds.extend(position);
+                marker = new google.maps.Marker({
+                    position: position,
+                    map: map,
+
+                    title: coor[i].fields.medidor
+                });
+
+
+                // Add info window to marker
+                google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                   // var referencia = '/interface/info-medidor/'+coor[i].pk;
+var popup = "<h6>"+coor[i].pk +"</h6>Temp: "+ coor[i].fields.s_temperatura+
+                    "<br>Humedad: " + coor[i].fields.s_humedad + "<br>Humo: " + coor[i].fields.s_humo +"<br>Sonido " + coor[i].fields.s_sonido
+                    return function() {
+                        infoWindow.setContent(popup);
+                        infoWindow.open(map, marker);
+                    }
+                })(marker, i));
+
+                // Center the map to fit all markers on the screen
+                map.fitBounds(bounds);
+            }
+
+        }
+
+        function findMarker(arregloJson, nic) {
+
+            for(j = 0; j<arregloJson.length; j++){
+
+                if (arregloJson[j].pk == nic){
+                    centre = new google.maps.LatLng(arregloJson[j].fields.latitud, arregloJson[j].fields.longitud);
+                    var mark = new google.maps.Marker({
+                    position: centre,
+                    map: map,
+                    animation: google.maps.Animation.BOUNCE,
+
+                });
+
+                }
+
+            }
+
+
+            map.setZoom(18);
+            map.setCenter(centre); 
+
+        }
+
+});
+
+
+
+
+
+}
+</script>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyBfmYocuT3ubLqfLbaZb_fEHaPrlg3rmHA&libraries=places&callback=myMap"></script>
+<!--
+To use this code on your website, get a free API key from Google.
+Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp   &callback=myMap
+-->
+{% comment %}<script>
+$(document).ready(function () {
+    $('p').hide();
+
+    for (i in myOb){
+        console.log(i)
+    }
+    console.log(data)
+
+}){% endcomment %}
+{% comment %}$(document).ready(function(){
+
+
+        $.get("/interface/mapa/", function(data, status){
+            capt = JSON.parse(data)
+
+            return capt;
+
+        });
+
+});
+</script>{% endcomment %}
+{% endblock %}
