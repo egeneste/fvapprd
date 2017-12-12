@@ -1,0 +1,321 @@
+[{
+"fields": {
+"medidor": "6041374",
+"nic": 5324652,
+"nis_rad": 4828655,
+"nombre_cliente": null,
+"latitud": 19.43126791,
+"longitud": -70.70643813,
+"evento": "Activa"
+}
+},{
+"fields": {
+"medidor": "6041040",
+"nic": 2212330,
+"nis_rad": 6062842,
+"nombre_cliente": null,
+"latitud": 19.29129818,
+"longitud": -70.25305464,
+"evento": "Activa"
+}
+},{
+"fields": {
+"medidor": "6041317",
+"nic": 8394515,
+"nis_rad": 8394515,
+"nombre_cliente": null,
+"latitud": 19.43074408,
+"longitud": -70.60235841,
+"evento": "Activa"
+}
+},{
+"fields": {
+"medidor": "6041521",
+"nic": 8127420,
+"nis_rad": 8127420,
+"nombre_cliente": null,
+"latitud": 19.46771759,
+"longitud": -70.68842705,
+"evento": "Activa"
+}
+},{
+"fields": {
+"medidor": "6080245",
+"nic": 8070401,
+"nis_rad": 8070401,
+"nombre_cliente": null,
+"latitud": 19.40007827,
+"longitud": -70.63109728,
+"evento": "Activa"
+}
+},{
+"fields": {
+"medidor": "6040093",
+"nic": 6006143,
+"nis_rad": 6006143,
+"nombre_cliente": null,
+"latitud": 19.47893981,
+"longitud": -70.72751162,
+"evento": "Activa"
+}
+},{
+"fields": {
+"medidor": "6040996",
+"nic": 6006016,
+"nis_rad": 6006016,
+"nombre_cliente": null,
+"latitud": null,
+"longitud": null,
+"evento": "Activa"
+}
+},{
+"fields": {
+"medidor": "6040477",
+"nic": 2176429,
+"nis_rad": 2176429,
+"nombre_cliente": null,
+"latitud": 19.46515261,
+"longitud": -70.69319137,
+"evento": "Activa"
+}
+},{
+"fields": {
+"medidor": "6040788",
+"nic": 6006995,
+"nis_rad": 6076492,
+"nombre_cliente": null,
+"latitud": 19.29,
+"longitud": -70.25,
+"evento": "Activa"
+}
+},{
+"fields": {
+"medidor": "6041271",
+"nic": null,
+"nis_rad": 5116316,
+"nombre_cliente": null,
+"latitud": 19.419546,
+"longitud": -70.647746,
+"evento": "Activa"
+}
+},{
+"fields": {
+"medidor": "6041508",
+"nic": 2162406,
+"nis_rad": 2162406,
+"nombre_cliente": null,
+"latitud": 19.45037156,
+"longitud": -70.69621887,
+"evento": "Activa"
+}
+},{
+"fields": {
+"medidor": "6080122",
+"nic": 6005926,
+"nis_rad": 6005926,
+"nombre_cliente": null,
+"latitud": 19.45253449,
+"longitud": -70.69774612,
+"evento": "Activa"
+}
+},{
+"fields": {
+"medidor": "6080614",
+"nic": 6005914,
+"nis_rad": 6005914,
+"nombre_cliente": null,
+"latitud": 19.45656478,
+"longitud": -70.69376889,
+"evento": "Activa"
+}
+},{
+"fields": {
+"medidor": "6042191",
+"nic": 8739645,
+"nis_rad": 8739645,
+"nombre_cliente": null,
+"latitud": 19.46632353,
+"longitud": -70.68095475,
+"evento": "Activa"
+}
+},{
+"fields": {
+"medidor": "6081089",
+"nic": null,
+"nis_rad": 8295764,
+"nombre_cliente": null,
+"latitud": 19.479277,
+"longitud": -70.665714,
+"evento": "Activa"
+}
+},{
+"fields": {
+"medidor": "6041263",
+"nic": 2170958,
+"nis_rad": 2170958,
+"nombre_cliente": null,
+"latitud": 19.45292227,
+"longitud": -70.69685491,
+"evento": "Activa"
+}
+},{
+"fields": {
+"medidor": "6080728",
+"nic": 5077875,
+"nis_rad": 5077875,
+"nombre_cliente": null,
+"latitud": 19.45157471,
+"longitud": -70.69701233,
+"evento": "Activa"
+}
+},{
+"fields": {
+"medidor": "6080703",
+"nic": 8250030,
+"nis_rad": 8250030,
+"nombre_cliente": null,
+"latitud": 19.44951509,
+"longitud": -70.6940957,
+"evento": "Activa"
+}
+},{
+"fields": {
+"medidor": "6081358",
+"nic": 2162245,
+"nis_rad": 2162245,
+"nombre_cliente": null,
+"latitud": 19.44957334,
+"longitud": -70.69462963,
+"evento": "Activa"
+}
+},{
+"fields": {
+"medidor": "6042027",
+"nic": 6005774,
+"nis_rad": 6005774,
+"nombre_cliente": null,
+"latitud": 19.44210006,
+"longitud": -70.69967555,
+"evento": "Activa"
+}
+},{
+"fields": {
+"medidor": "6080610",
+"nic": 2176616,
+"nis_rad": 2176616,
+"nombre_cliente": null,
+"latitud": 19.46791783,
+"longitud": -70.6882672,
+"evento": "Activa"
+}
+},{
+"fields": {
+"medidor": "6080114",
+"nic": 5122797,
+"nis_rad": 5122797,
+"nombre_cliente": null,
+"latitud": 19.46252175,
+"longitud": -70.69243067,
+"evento": "Activa"
+}
+},{
+"fields": {
+"medidor": "6042150",
+"nic": 6006014,
+"nis_rad": 6006014,
+"nombre_cliente": null,
+"latitud": 19.45863371,
+"longitud": -70.69472375,
+"evento": "Activa"
+}
+},{
+"fields": {
+"medidor": "6080162",
+"nic": 5278204,
+"nis_rad": 5278204,
+"nombre_cliente": null,
+"latitud": 19.47541796,
+"longitud": -70.69581267,
+"evento": "Activa"
+}
+},{
+"fields": {
+"medidor": "6080446",
+"nic": 2191418,
+"nis_rad": 2191418,
+"nombre_cliente": null,
+"latitud": 19.45590286,
+"longitud": -70.68724754,
+"evento": "Activa"
+}
+},{
+"fields": {
+"medidor": "6080755",
+"nic": 2166273,
+"nis_rad": 2166273,
+"nombre_cliente": null,
+"latitud": 19.45716207,
+"longitud": -70.69655615,
+"evento": "Activa"
+}
+},{
+"fields": {
+"medidor": "6040937",
+"nic": null,
+"nis_rad": 8858916,
+"nombre_cliente": null,
+"latitud": 19.463434,
+"longitud": -70.690432,
+"evento": "Activa"
+}
+},{
+"fields": {
+"medidor": "6040538",
+"nic": 2176622,
+"nis_rad": 2176622,
+"nombre_cliente": null,
+"latitud": 19.458624,
+"longitud": -70.696693,
+"evento": "Activa"
+}
+},{
+"fields": {
+"medidor": "6042088",
+"nic": 2176330,
+"nis_rad": 2176330,
+"nombre_cliente": null,
+"latitud": 19.45922084,
+"longitud": -70.70052061,
+"evento": "Activa"
+}
+},{
+"fields": {
+"medidor": "6080346",
+"nic": null,
+"nis_rad": 2170859,
+"nombre_cliente": null,
+"latitud": 19.458241,
+"longitud": -70.688654,
+"evento": "Activa"
+}
+},{
+"fields": {
+"medidor": "6052088",
+"nic": null,
+"nis_rad": 2176330,
+"nombre_cliente": null,
+"latitud": 19.2912981794272,
+"longitud": -70.2530546440722,
+"evento": "Activa"
+}
+},{
+"fields": {
+"medidor": "6041366",
+"nic": 8747683,
+"nis_rad": 8434161,
+"nombre_cliente": null,
+"latitud": 19.49449441,
+"longitud": -70.73432593,
+"evento": "Delete"
+}
+}]
