@@ -94,11 +94,11 @@
 
      setInterval(function() {
    // $( document ).ready(function() {
-        $.get('/interface/chartTiempo', function (datoo, status) {
+        $.get('/interface/liveth', function (datoo, status) {
 
             donne = JSON.parse(datoo)
 
-            console.log(donne[0].fields.timestamp);
+            console.log(donne[0].fields.temperatura);
 
 
             document.getElementById('temp').innerHTML = donne[0].fields.temperatura;

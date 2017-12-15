@@ -86,6 +86,11 @@ def tempVsTiempo(request):
                                  fields=('temperatura', 'timestamp', 'humedad'))
     return HttpResponse(data, 'jjjj.html')
 
+def liveTempHum(request):
+    data = serializers.serialize('json', LecturaTempHume.objects.all().order_by('timestamp').reverse(),
+                                 fields=('temperatura', 'timestamp', 'humedad'))
+    return HttpResponse(data, 'realTimeMeters.html')
+
 def grafTemp(request):
     return render(request, 'jjjj.html', {})
 
