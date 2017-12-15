@@ -13,7 +13,7 @@ def index(request):
 
 def lectura(request):
 
-    querryset_list = LecturaTempHume.objects.all()
+    querryset_list = LecturaTempHume.objects.all().order_by('timestamp').reverse()
     paginator = Paginator(querryset_list, 15)
     page = request.GET.get('page')
     try:

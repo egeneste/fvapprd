@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="35fcb62e-f0a6-411b-8f71-e942e920ecfb" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change beforePath="$PROJECT_DIR$/interface/urls.py" afterPath="$PROJECT_DIR$/interface/urls.py" />
+      <change beforePath="$PROJECT_DIR$/fvapprd/settings.py" afterPath="$PROJECT_DIR$/fvapprd/settings.py" />
       <change beforePath="$PROJECT_DIR$/interface/views.py" afterPath="$PROJECT_DIR$/interface/views.py" />
-      <change beforePath="$PROJECT_DIR$/templates/realTimeMeters.html" afterPath="$PROJECT_DIR$/templates/realTimeMeters.html" />
+      <change beforePath="$PROJECT_DIR$/templates/lecture.html" afterPath="$PROJECT_DIR$/templates/lecture.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,14 +22,34 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fvapprd/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="218">
+              <caret line="110" column="16" lean-forward="false" selection-start-line="110" selection-start-column="16" selection-end-line="110" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/interface/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="89" column="102" lean-forward="false" selection-start-line="89" selection-start-column="102" selection-end-line="89" selection-end-column="102" />
+            <state relative-caret-position="85">
+              <caret line="15" column="82" lean-forward="false" selection-start-line="15" selection-start-column="82" selection-end-line="15" selection-end-column="82" />
               <folding>
                 <element signature="e#0#49#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="lecture.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/lecture.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="22" lean-forward="false" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -57,16 +76,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="modulo.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/modulo.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="jjjj.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/jjjj.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -75,16 +84,6 @@
               <folding>
                 <element signature="e#257#311#0#HTML" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/test.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="34" column="1" lean-forward="false" selection-start-line="34" selection-start-column="1" selection-end-line="34" selection-end-column="1" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -177,6 +176,8 @@
         <option value="$PROJECT_DIR$/static/css/styles.css" />
         <option value="$PROJECT_DIR$/interface/urls.py" />
         <option value="$PROJECT_DIR$/templates/realTimeMeters.html" />
+        <option value="$PROJECT_DIR$/templates/lecture.html" />
+        <option value="$PROJECT_DIR$/fvapprd/settings.py" />
         <option value="$PROJECT_DIR$/interface/views.py" />
       </list>
     </option>
@@ -187,7 +188,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="298" />
     <option name="y" value="53" />
     <option name="width" value="814" />
@@ -213,6 +214,11 @@
           <expand>
             <path>
               <item name="fvapprd" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fvapprd" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fvapprd" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fvapprd" type="462c0819:PsiDirectoryNode" />
               <item name="fvapprd" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -330,7 +336,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="7" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -399,23 +405,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fvapprd/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fvapprd/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/lecture.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -531,10 +521,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/lecture.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="22" lean-forward="false" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fvapprd/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="110" column="16" lean-forward="false" selection-start-line="110" selection-start-column="16" selection-end-line="110" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/interface/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="89" column="102" lean-forward="false" selection-start-line="89" selection-start-column="102" selection-end-line="89" selection-end-column="102" />
+        <state relative-caret-position="85">
+          <caret line="15" column="82" lean-forward="false" selection-start-line="15" selection-start-column="82" selection-end-line="15" selection-end-column="82" />
           <folding>
             <element signature="e#0#49#0" expanded="true" />
           </folding>
