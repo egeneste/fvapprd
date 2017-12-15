@@ -1,10 +1,153 @@
 {% extends 'index.html' %}
-{% block title %}Lectura{% endblock %}#}
-{% block content %} {% endblock %}
-{% block table %} {% endblock %}
-{% block filter %} {%  endblock %}
-{% block page %} {% endblock %}
 
-{%  block contenedor %}
+{% load staticfiles %}
+
+{%  block True %}
+
+<br>
+    <div class="col-lg-12">
+        <div id="txt" style="background-color: cadetblue; text-align: center; color: white; font-size: x-large"></div>
+    </div>
+
+<div style="font-size: large;">
+        <div class="col-sm-6">
+             <div class="div-square" id="one" >
+
+                    <h2>Region: 1</h2>
+
+                    <br>
+                    Module : 1001<span id="modul"> </span>
+                    <br>
+                    Temperatura:  <span id="temp" ></span> *C
+                    <br>
+                    Humedad    :  <span id="hum" ></span>   %
+             </div>
+        </div>
+
+        <div class="col-sm-6" >
+             <div class="div-square" id="two">
+
+                    <h2>Region: 2</h2>
+                    <br>
+                    Module :<span id="modul"> </span>
+                    <br>
+                    Temperatura:  <span id="temp" ></span> *C
+                    <br>
+                    Humedad    :  <span id="hum" ></span>   %
+             </div>
+        </div>
+
+
+        <div class="col-sm-6" >
+             <div class="div-square" id="three">
+
+                    <h2>Region: 3</h2>
+                    <br>
+                    Module :<span id="modul"> </span>
+                    <br>
+                    Temperatura:  <span id="temp" ></span> *C
+                    <br>
+                    Humedad    :  <span id="hum" ></span>   %
+             </div>
+        </div>
+        <div class="col-sm-6">
+             <div class="div-square" id="four">
+
+                    <h2>Region: 4</h2>
+                    <br>
+                    Module :<span id="modul"> </span>
+                    <br>
+                    Temperatura:  <span id="temp" ></span> *C
+                    <br>
+                    Humedad    :  <span id="hum" ></span>   %
+             </div>
+        </div>
+        <div class="col-sm-6" id="five">
+             <div class="div-square">
+
+                    <h2>Region: 5</h2>
+                    <br>
+                    Module :<span id="modul"> </span>
+                    <br>
+                    Temperatura:  <span id="temp" ></span> *C
+                    <br>
+                    Humedad    :  <span id="hum" ></span>   %
+             </div>
+        </div>
+            <div class="col-sm-6">
+             <div class="div-square" id="six">
+
+                    <h2>Region: 6</h2>
+                    <br>
+                    Module :<span id="modul"> </span>
+                    <br>
+                    Temperatura:  <span id="temp" ></span> *C
+                    <br>
+                    Humedad    :  <span id="hum" ></span>   %
+             </div>
+        </div>
+</div>
+
+     <script>
+ $(function() {
+     startTime();
+
+     setInterval(function() {
+   // $( document ).ready(function() {
+        $.get('/interface/chartTiempo', function (datoo, status) {
+
+            donne = JSON.parse(datoo)
+
+            console.log(donne[0].fields.timestamp);
+
+
+            document.getElementById('temp').innerHTML = donne[0].fields.temperatura;
+            document.getElementById('hum').innerHTML = donne[0].fields.humedad;
+
+            checkFilled(donne[0].fields.temperatura,donne[0].fields.humedad );
+
+        });
+
+     }, 1500); //setting the requests to 1.5 second each , 1500
+
+
+
+
+ });
+
+ function startTime() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById('txt').innerHTML =
+    h + ":" + m + ":" + s;
+    var t = setTimeout(startTime, 500);
+}
+function checkTime(i) {
+    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
+
+function checkFilled(valt, valh) {
+    var inputVal = document.getElementById("one");
+    if (valt <20) {
+        inputVal.style.backgroundColor = "greenyellow";
+    }
+
+    else if (valt > 20 || valt <30 ){
+        inputVal.style.backgroundColor = "yellow";
+    }
+    else {
+        inputVal.style.backgroundColor = "red";
+    }
+}
+  //  $( window ).on( "load", function() {
+ //       console.log( "window loaded" );
+  //  });
+    </script>
+
 
 {% endblock %}

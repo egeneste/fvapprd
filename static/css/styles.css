@@ -82,14 +82,14 @@ dd{
 #header-fixed {
     position: fixed;
 
-    background-color:  darkgreen;
+    background-color:  cadetblue;
     text-align: center;
     color: white;
 }
 
 #head-th {
 
-    background-color: darkgreen;
+    background-color: cadetblue;
     color: white;
 
     text-align: center;

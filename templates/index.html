@@ -9,11 +9,17 @@
     <title>{% block title %}Monitoreo{% endblock %}</title>
 
     <!-- chart-->
-        <script src="https://cdn.anychart.com/releases/8.0.1/js/anychart-base.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.0.1/js/anychart-base.min.js"></script>
     <script src="https://cdn.anychart.com/releases/8.0.1/js/anychart-exports.min.js"></script>
     <script src="https://cdn.anychart.com/releases/8.0.1/js/anychart-ui.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.anychart.com/releases/8.0.1/css/anychart-ui.min.css" />
+    <link rel="stylesheet" href="https://cdn.anychart.com/releases/8.0.1/css/anychart-ui.min.css"/>
 
+    <!--Chart-->
+    <script src="https://cdn.anychart.com/releases/8.0.1/js/anychart-base.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.0.1/js/anychart-exports.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.0.1/js/anychart-ui.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.anychart.com/releases/8.0.1/css/anychart-ui.min.css"/>
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
 
     <!-- BOOTSTRAP STYLES-->
     <link href="{% static 'assets/css/bootstrap.css' %}" rel="stylesheet"/>
@@ -33,7 +39,7 @@
 <body>
 
 
-<div style="margin-top: 15px">
+<div style="margin-top: 2%">
 
     <div class="navbar navbar-fixed-top " id="header-fixed">
         <center><h3>Sistema de vigilancia de Area Protegida</h3></center>
@@ -87,7 +93,7 @@
             </li>
 
             <li>
-                <a href="/interface/chartTiempo"><i class="fa fa-map-marker"></i>Tiempo Chart</a>
+                <a href="/interface/grafica-temperatura-vs-tiempo"><i class="fa fa-map-marker"></i>Tiempo Chart</a>
             </li>
             <!--
 
@@ -111,386 +117,101 @@
             </li>{% endcomment %}
 
 
-
-
-
         </ul>
     </div>
 
 </nav>
 <!-- /. NAV SIDE  -->
-<div id="page-wrapper">
-    <div id="page-inner">
 
-        <!-- /. ROW  -->
-        <form method="post" action=".">{% csrf_token %}
-            {% block filter %}
+<div id="page-wrapper" class="col-lg-8; col-sm-push-11">
+    {% block True %}
+        <div id="page-inner">
 
-                <hr/>
-                <div class="row">
-                    <div class="col-xs-3"><label for="datepickerInit">Fecha inicial</label><!---->
-                        <div class="input-group">
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
-                            <input type="date" name="startFc" step="1" min="2017-01-01"  name="init"
-                                   placeholder="Inicial:dd/mm/aaaa" class="form-control" >
+            <!-- /. ROW  -->
+            <form method="post" action=".">{% csrf_token %}
+                {% block filter %}
+
+                    <hr/>
+                        <div class="row">
+                            <div class="col-xs-3"><label for="datepickerInit">Fecha inicial</label><!---->
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+                                    <input type="date" name="startFc" step="1" min="2017-01-01" name="init"
+                                           placeholder="Inicial:dd/mm/aaaa" class="form-control">
+                                </div>
+                            </div>
+
+
+                            <div class="col-xs-3"><label for="datepickerInit">Fecha final</label><!---->
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+                                    <input type="date" name="endFc" step="1" min="2013-01-01" id="datepickerInit"
+                                           class="form-control">
+                                </div>
+                            </div>
+
+
+                            <div class="col-xs-3"><label for="myInput">ID Modulo</label><!---->
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+                                    <input type="text" id="myInput" placeholder="Favor ingrese el numero de modulo"
+                                           name="nic" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="col-xs-3"><label for="myInput"><h2></h2></label><!---->
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-send"></span></span>
+                                    <button type="submit" class="btn btn-default">Submit</button>
+                                </div>
+                            </div>
                         </div>
-                    </div>
 
+                {% endblock %}
+            </form>
 
+            {% block contenedor %}
+                <div style="height :70%; overflow-x: scroll; overflow-y: auto; ">
+                    <!--style="height : 500px; overflow-x: scroll; overflow-y: scroll"-->
+                    {% block chart %} {% endblock %}
+                        <table width="100%" class="table table-striped table-bordered" cellspacing="0">
 
-                    <div class="col-xs-3"><label for="datepickerInit">Fecha final</label><!---->
-                        <div class="input-group">
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
-                            <input type="date" name="endFc" step="1" min="2013-01-01" id="datepickerInit" class="form-control" >
+                            {% block table %}{% endblock table %}
+                        </table>
+                    {% block page %}
                         </div>
-                    </div>
+                            <div class="pagination">
+                                <span class="step-links">
+                        {% if Object_list.has_previous %}
+                            <a href="?page={{ Object_list.previous_page_number }}">anterior</a>
+                        {% endif %}
 
+                        <span class="current">
+                            Pagina {{ Object_list.number }} de {{ Object_list.paginator.num_pages }}.
+                        </span>
 
-                    <div class="col-xs-3"><label for="myInput">ID Modulo</label><!---->
-                        <div class="input-group">
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
-                            <input type="text" id="myInput" placeholder="Favor ingrese el numero de modulo" name="nic" class="form-control" >
-                        </div>
-                    </div>
+                        {% if Object_list.has_next %}
+                            <a href="?page={{ Object_list.next_page_number }}">siguiente</a>
+                        {% endif %}
+                    </span>
 
-                    <div class="col-xs-3"><label for="myInput"><h2></h2></label><!---->
-                        <div class="input-group">
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-send"></span></span>
-                            <button type="submit" class="btn btn-default">Submit</button>
-                        </div>
-                    </div>
-                </div>
 
+                            </div>
 
+                    {% endblock page %}
+                <!-- /. PAGE Inner  -->
 
+            {% endblock  %}
+       </div>
 
+     {% endblock %}
 
-
-            {% endblock %}
-        </form>
-        {% block contenedor %}
-            <div style="height :70%; overflow-x: scroll; overflow-y: auto; ">
-                <!--style="height : 500px; overflow-x: scroll; overflow-y: scroll"-->
-
-                <table width="100%" class="table table-striped table-bordered" cellspacing="0">
-                    {% block table %}{% endblock table %}
-                </table>
-                {% block page %}
-                    </div>
-
-<div class="pagination">
-    <span class="step-links">
-        {% if Object_list.has_previous %}
-            <a href="?page={{ Object_list.previous_page_number }}">anterior</a>
-        {% endif %}
-
-        <span class="current">
-            Pagina {{ Object_list.number }} de {{ Object_list.paginator.num_pages }}.
-        </span>
-
-        {% if Object_list.has_next %}
-            <a href="?page={{ Object_list.next_page_number }}">siguiente</a>
-        {% endif %}
-    </span>
-
-
-</div>
-{% endblock %}
- </div>
-
-        {% endblock %}
-    {% block main %}
-        <!--
-        <div class="row">
-            <div class="col-lg-12 ">
-                <div class="alert alert-info">
-                     <strong>Welcome Jhon Doe ! </strong> You Have No pending Task For Today.
-                </div>
-
-            </div>
-            </div>
-          <!-- /. ROW -->
-
-        <!--cut here-->
-
-        <!-- /. ROW  --
-       <div class="row text-center pad-top">
-
-        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-             <div class="div-square">
-                  <a href="blank.html" >
-<i class="fa fa-clipboard fa-5x"></i>
-             <h4>All Docs</h4>
-             </a>
-             </div>
-
-
-         </div>
-         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-             <div class="div-square">
-                  <a href="blank.html" >
-<i class="fa fa-gear fa-5x"></i>
-             <h4>Settings</h4>
-             </a>
-             </div>
-
-
-         </div>
-         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-             <div class="div-square">
-                  <a href="blank.html" >
-<i class="fa fa-wechat fa-5x"></i>
-             <h4>Live Talk</h4>
-             </a>
-             </div>
-
-
-         </div>
-         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-             <div class="div-square">
-                  <a href="blank.html" >
-<i class="fa fa-bell-o fa-5x"></i>
-             <h4>Notifications </h4>
-             </a>
-             </div>
-
-
-         </div>
-         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-             <div class="div-square">
-                  <a href="blank.html" >
-<i class="fa fa-rocket fa-5x"></i>
-             <h4>Launch</h4>
-             </a>
-             </div>
-
-
-         </div>
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-             <div class="div-square">
-                  <a href="blank.html" >
-<i class="fa fa-user fa-5x"></i>
-             <h4>Register User</h4>
-             </a>
-             </div>
-
-
-         </div>
-     </div>
-         <!-- /. ROW  --
-        <div class="row text-center pad-top">
-
-
-         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-             <div class="div-square">
-                  <a href="blank.html" >
-<i class="fa fa-envelope-o fa-5x"></i>
-             <h4>Mail Box</h4>
-             </a>
-             </div>
-
-
-         </div>
-         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-             <div class="div-square">
-                  <a href="blank.html" >
-<i class="fa fa-lightbulb-o fa-5x"></i>
-             <h4>New Issues</h4>
-             </a>
-             </div>
-
-
-         </div>
-         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-             <div class="div-square">
-                  <a href="blank.html" >
-<i class="fa fa-users fa-5x"></i>
-             <h4>See Users</h4>
-             </a>
-             </div>
-
-
-         </div>
-         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-             <div class="div-square">
-                  <a href="blank.html" >
-<i class="fa fa-key fa-5x"></i>
-             <h4>Admin </h4>
-             </a>
-             </div>
-
-
-         </div>
-         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-             <div class="div-square">
-                  <a href="#" >
-<i class="fa fa-comments-o fa-5x"></i>
-             <h4>Support</h4>
-             </a>
-             </div>
-
-
-         </div>
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-             <div class="div-square">
-                  <a href="blank.html" >
-<i class="fa fa-circle-o-notch fa-5x"></i>
-             <h4>Check Data</h4>
-             </a>
-             </div>
-
-
-         </div>
-     </div>
-        <!-- /. ROW  --
-        <div class="row text-center pad-top">
-        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-             <div class="div-square">
-                  <a href="blank.html" >
-<i class="fa fa-rocket fa-5x"></i>
-             <h4>Launch</h4>
-             </a>
-             </div>
-
-
-         </div>
-        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-             <div class="div-square">
-                  <a href="blank.html" >
-<i class="fa fa-clipboard fa-5x"></i>
-             <h4>All Docs</h4>
-             </a>
-             </div>
-
-
-         </div>
-         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-             <div class="div-square">
-                  <a href="blank.html" >
-<i class="fa fa-gear fa-5x"></i>
-             <h4>Settings</h4>
-             </a>
-             </div>
-
-
-         </div>
-         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-             <div class="div-square">
-                  <a href="blank.html" >
-<i class="fa fa-wechat fa-5x"></i>
-             <h4>Live Talk</h4>
-             </a>
-             </div>
-
-
-         </div>
-         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-             <div class="div-square">
-                  <a href="blank.html" >
-<i class="fa fa-bell-o fa-5x"></i>
-             <h4>Notifications </h4>
-             </a>
-             </div>
-
-
-         </div>
-
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-             <div class="div-square">
-                  <a href="blank.html" >
-<i class="fa fa-user fa-5x"></i>
-             <h4>Register User</h4>
-             </a>
-             </div>
-
-
-         </div>
-     </div>
-         <!-- /. ROW  --
-       <div class="row text-center pad-top">
-
-
-
-         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-             <div class="div-square">
-                  <a href="blank.html" >
-<i class="fa fa-lightbulb-o fa-5x"></i>
-             <h4>New Issues</h4>
-             </a>
-             </div>
-
-
-         </div>
-         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-             <div class="div-square">
-                  <a href="blank.html" >
-<i class="fa fa-users fa-5x"></i>
-             <h4>See Users</h4>
-             </a>
-             </div>
-
-
-         </div>
-         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-             <div class="div-square">
-                  <a href="blank.html" >
-<i class="fa fa-key fa-5x"></i>
-             <h4>Admin </h4>
-             </a>
-             </div>
-
-
-         </div>
-         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-             <div class="div-square">
-                  <a href="blank.html" >
-<i class="fa fa-comments-o fa-5x"></i>
-             <h4>Support</h4>
-             </a>
-             </div>
-
-
-         </div>
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-             <div class="div-square">
-                  <a href="blank.html" >
-<i class="fa fa-circle-o-notch fa-5x"></i>
-             <h4>Check Data</h4>
-             </a>
-             </div>
-
-
-         </div>
-           <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-             <div class="div-square">
-                  <a href="blank.html" >
-<i class="fa fa-envelope-o fa-5x"></i>
-             <h4>Mail Box</h4>
-             </a>
-             </div>
-
-
-         </div>
-     </div>
-        <!-- /. ROW  --
-         <div class="row">
-           <div class="col-lg-12 ">
-           <br/>
-               <div class="alert alert-danger">
-                    <strong>Want More Icons Free ? </strong> Checkout fontawesome website and use any icon <a target="_blank" href="http://fortawesome.github.io/Font-Awesome/icons/">Click Here</a>.
-               </div>
-
-           </div>
-           </div>
-         <!-- /. ROW  -->
-
-    {% endblock %}
-</div>
-<!-- /. PAGE INNER  -->
-</div>
 <!-- /. PAGE WRAPPER  -->
+
 </div>
--->
+
+
+
 <div class="footer">
 
     <!--

@@ -83,5 +83,19 @@ def area(request):
 
 def tempVsTiempo(request):
     data = serializers.serialize('json', LecturaTempHume.objects.all(),
-                                 fields=('temperatura', 'timestamp'))
+                                 fields=('temperatura', 'timestamp', 'humedad'))
     return HttpResponse(data, 'jjjj.html')
+
+def grafTemp(request):
+    return render(request, 'jjjj.html', {})
+
+def loadDatabase(request, modul, temp, hum):
+
+    new_datos = LecturaTempHume()
+    new_datos.temperatura = temp
+    new_datos.humedad = hum
+    new_datos.modulo = modul
+
+    new_datos.save()
+
+    return render(request, 'jjjj.html', {})

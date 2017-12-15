@@ -1,54 +1,77 @@
-<!doctype html>
-<html>
-  <head>
-    <script src="https://cdn.anychart.com/releases/8.0.1/js/anychart-base.min.js"></script>
-    <script src="https://cdn.anychart.com/releases/8.0.1/js/anychart-exports.min.js"></script>
-    <script src="https://cdn.anychart.com/releases/8.0.1/js/anychart-ui.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.anychart.com/releases/8.0.1/css/anychart-ui.min.css" />
-    <style>
-      html, body, #container {
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="container"></div>
-    <script>
-anychart.onDocumentReady(function () {
+{% extends 'index.html' %}
 
-    // create data
-    var data = [
-      {x: "January", value: 10000},
-      {x: "February", value: 12000},
-      {x: "March", value: 18000},
-      {x: "April", value: 11000},
-      {x: "May", value: 9000}
-    ];
+{% load staticfiles %}
+{% block main %}{% endblock %}
+{% block calendario %}{% endblock %}
+{% block filter %}{% endblock %}
+{% block table %} {% endblock %}
+{%  block page %} {% endblock %}
+{%  block True %}
 
-    // create a chart
-    chart = anychart.line();
 
-    // create a line series and set the data
-    var series = chart.line(data);
+    <div id="temp" style="width:100%; height: 700px; padding-top: 100px;"></div>
 
-    // set the chart title
-    chart.title("Line Chart: Basic Sample");
 
-    // set the titles of the axes
-    var xAxis = chart.xAxis();
-    xAxis.title("Month");
-    var yAxis = chart.yAxis();
-    yAxis.title("Sales, $");
+     <script>
+ $(function() {
+    // setInterval(function() {
+    $( document ).ready(function() {
+        $.get('/interface/chartTiempo', function (datoo, status) {
 
-    // set the container id
-    chart.container("container");
+            donne = JSON.parse(datoo)
 
-    // initiate drawing the chart
-    chart.draw();
-});
+                console.log(donne[0].fields.timestamp);
+
+            var data =[];
+            for (i = 0; i< donne.length ; i++){
+                data.push({x: donne[i].fields.timestamp, value: donne[i].fields.temperatura})
+            }
+            // create a chart
+            chart = anychart.line();
+            // create a line series and set the data
+            chart.line(data);
+
+            // set the chart title
+            chart.title("(Temperatura *C & Humedad) % versus Tiempo");
+            // set the titles of the axes
+            var xAxis = chart.xAxis();
+            xAxis.title("Tiempo");
+            var yAxis = chart.yAxis();
+            yAxis.title("Temperatura, *C; Humedad %");
+
+            // set the container id
+            chart.container("temp");
+
+            // initiate drawing the chart
+            chart.draw();
+
+
+            //////// chart humedad ///////
+
+            var data_hum =[];
+            for (i = 0; i< donne.length ; i++){
+                data_hum.push({x: donne[i].fields.timestamp, value: donne[i].fields.humedad})
+            }
+            // create a chart
+
+            chart.line(data_hum);
+
+
+
+
+        });
+
+     }); //setting the requests to 1.5 second each , 1500
+
+
+
+
+ });
+
+  //  $( window ).on( "load", function() {
+ //       console.log( "window loaded" );
+  //  });
     </script>
-  </body>
-</html>
+
+
+{% endblock %}
