@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="35fcb62e-f0a6-411b-8f71-e942e920ecfb" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change beforePath="$PROJECT_DIR$/fvapprd/settings.py" afterPath="$PROJECT_DIR$/fvapprd/settings.py" />
-      <change beforePath="$PROJECT_DIR$/interface/views.py" afterPath="$PROJECT_DIR$/interface/views.py" />
-      <change beforePath="$PROJECT_DIR$/templates/lecture.html" afterPath="$PROJECT_DIR$/templates/lecture.html" />
+      <change beforePath="$PROJECT_DIR$/templates/realTimeMeters.html" afterPath="$PROJECT_DIR$/templates/realTimeMeters.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -32,7 +29,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/interface/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="85">
@@ -79,7 +76,7 @@
       <file leaf-file-name="jjjj.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/jjjj.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
+            <state relative-caret-position="-176">
               <caret line="18" column="26" lean-forward="false" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="37" />
               <folding>
                 <element signature="e#257#311#0#HTML" expanded="true" />
@@ -131,11 +128,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="realTimeMeters.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="realTimeMeters.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/realTimeMeters.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="96" column="32" lean-forward="false" selection-start-line="96" selection-start-column="32" selection-end-line="96" selection-end-column="32" />
+            <state relative-caret-position="311">
+              <caret line="139" column="25" lean-forward="false" selection-start-line="139" selection-start-column="25" selection-end-line="139" selection-end-column="25" />
               <folding>
                 <element signature="e#126#215#0#HTML" expanded="true" />
                 <element signature="e#240#265#0#HTML" expanded="true" />
@@ -175,10 +172,10 @@
         <option value="$PROJECT_DIR$/templates/mapa.html" />
         <option value="$PROJECT_DIR$/static/css/styles.css" />
         <option value="$PROJECT_DIR$/interface/urls.py" />
-        <option value="$PROJECT_DIR$/templates/realTimeMeters.html" />
         <option value="$PROJECT_DIR$/templates/lecture.html" />
         <option value="$PROJECT_DIR$/fvapprd/settings.py" />
         <option value="$PROJECT_DIR$/interface/views.py" />
+        <option value="$PROJECT_DIR$/templates/realTimeMeters.html" />
       </list>
     </option>
   </component>
@@ -490,33 +487,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/jjjj.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="26" lean-forward="false" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="37" />
-          <folding>
-            <element signature="e#257#311#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/interface/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="32" lean-forward="false" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/realTimeMeters.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="96" column="32" lean-forward="false" selection-start-line="96" selection-start-column="32" selection-end-line="96" selection-end-column="32" />
-          <folding>
-            <element signature="e#126#215#0#HTML" expanded="true" />
-            <element signature="e#240#265#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -543,6 +519,27 @@
           <caret line="15" column="82" lean-forward="false" selection-start-line="15" selection-start-column="82" selection-end-line="15" selection-end-column="82" />
           <folding>
             <element signature="e#0#49#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/jjjj.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-176">
+          <caret line="18" column="26" lean-forward="false" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="37" />
+          <folding>
+            <element signature="e#257#311#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/realTimeMeters.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="139" column="25" lean-forward="false" selection-start-line="139" selection-start-column="25" selection-end-line="139" selection-end-column="25" />
+          <folding>
+            <element signature="e#126#215#0#HTML" expanded="true" />
+            <element signature="e#240#265#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
