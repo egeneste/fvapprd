@@ -5,3 +5,8 @@ class ModuleAdmin(admin.ModelAdmin):
     list_display = ('modulo', 's_temperatura', 's_humedad', 's_humo', 's_sonido')
 
 admin.site.register(Module, ModuleAdmin)
+
+class LectureAdmin(admin.ModelAdmin):
+    list_display = ('modulo', 'temperatura', 'humedad', 'tiempo')
+
+admin.site.register(LecturaTempHume, LectureAdmin)

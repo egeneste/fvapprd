@@ -20,11 +20,11 @@
 
             donne = JSON.parse(datoo)
 
-                console.log(donne[0].fields.timestamp);
+                console.log(donne[0].fields.tiempo);
 
             var data =[];
             for (i = 0; i< donne.length ; i++){
-                data.push({x: donne[i].fields.timestamp, value: donne[i].fields.temperatura})
+                data.push({x: donne[i].fields.tiempo, value: donne[i].fields.temperatura})
             }
             // create a chart
             chart = anychart.line();
@@ -50,7 +50,7 @@
 
             var data_hum =[];
             for (i = 0; i< donne.length ; i++){
-                data_hum.push({x: donne[i].fields.timestamp, value: donne[i].fields.humedad})
+                data_hum.push({x: donne[i].fields.tiempo, value: donne[i].fields.humedad})
             }
             // create a chart
 

@@ -1,0 +1,41 @@
+{% extends 'index.html' %}
+{% block title %}Notificaciones{% endblock %}#}
+{% block content %} {% endblock %}
+{% block table %}
+
+    <thead id="head-th">
+    <hr/>
+    <tr>
+        <td>Modulo ID</td>
+
+        <td>Tipo de alerta</td>
+        <td>Fecha / Hora</td>
+
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    {% for ob in Object_list %}
+        <tr>
+            <td>{{ ob.modulo }}</td>
+
+            <td>{{ ob.Tipo }}</td>
+            <td>{{ ob.tiempo }}</td>
+
+
+
+        </tr>
+    {% endfor %}
+    <td>{{ ob.modulo }}</td>
+
+    <td>{{ ob.Tipo }}</td>
+    <td>{{ ob.tiempo }}</td>
+
+
+    <!--<script src="scripts/main.js"></script>-->
+    </tbody>
+
+{% endblock %}

@@ -66,7 +66,7 @@
     <div class="sidebar-collapse">
         <ul class="nav">
 
-            <img style="padding-left: 7px;" src="{% static 'images/fvv.jpg' %}"/>
+            <img style="padding-left: 7px;" src="{% static 'images/fv2.jpg' %}"/>
             <hr/>
             <li>
                 <a href="/interface/"><i class="fa fa-flag-o "></i>Monitoreo</a>
@@ -85,7 +85,7 @@
 
 
             <li>
-                <a href=""><i class="fa fa-table"></i>Estadistica</a>
+                <a href="/interface/alerts"><i class="fa fa-table"></i>Alerta</a>
             </li>
 
             <li>
@@ -93,7 +93,7 @@
             </li>
 
             <li>
-                <a href="/interface/grafica-temperatura-vs-tiempo"><i class="fa fa-map-marker"></i>Tiempo Chart</a>
+                <a href="/interface/grafica-temperatura-vs-tiempo"><i class="fa fa-history"></i>Grafica</a>
             </li>
             <!--
 
@@ -126,50 +126,58 @@
 <div id="page-wrapper" class="col-lg-8; col-sm-push-11">
     {% block True %}
         <div id="page-inner">
-
+            {% block filter %}
             <!-- /. ROW  -->
-            <form method="post" action=".">{% csrf_token %}
-                {% block filter %}
+                 <form method="post" action=".">{% csrf_token %}
+
 
                     <hr/>
                         <div class="row">
-                            <div class="col-xs-3"><label for="datepickerInit">Fecha inicial</label><!---->
+                            <div class="col-sm-3"><label for="datepickerInit">Fecha inicial</label><!---->
                                 <div class="input-group">
                                     <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
-                                    <input type="date" name="startFc" step="1" min="2017-01-01" name="init"
-                                           placeholder="Inicial:dd/mm/aaaa" class="form-control">
+                                    <input type="date" min="12-01-2017" id="startFc" step="1"  name="init"
+                                            class="form-control">
                                 </div>
                             </div>
 
 
-                            <div class="col-xs-3"><label for="datepickerInit">Fecha final</label><!---->
+                            <div class="col-sm-3"><label for="datepickerInit">Fecha final</label><!---->
                                 <div class="input-group">
                                     <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
-                                    <input type="date" name="endFc" step="1" min="2013-01-01" id="datepickerInit"
+                                    <input type="date" max="12-01-2018" id="endFc" step="1"  id="datepickerInit"
                                            class="form-control">
                                 </div>
                             </div>
 
 
-                            <div class="col-xs-3"><label for="myInput">ID Modulo</label><!---->
+                            <div class="col-sm-3"><label for="myInput">ID Modulo</label><!---->
                                 <div class="input-group">
                                     <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
                                     <input type="text" id="myInput" placeholder="Favor ingrese el numero de modulo"
-                                           name="nic" class="form-control">
+                                           name="modulo" class="form-control">
                                 </div>
                             </div>
 
-                            <div class="col-xs-3"><label for="myInput"><h2></h2></label><!---->
+                            <div class="col-sm-3"><label for="myInput"><h2></h2></label><!---->
                                 <div class="input-group">
                                     <span class="input-group-addon"><span class="glyphicon glyphicon-send"></span></span>
-                                    <button type="submit" class="btn btn-default">Submit</button>
+                                    <button type="submit" class="btn btn-default" onclick="myFunction()">Submit</button>
                                 </div>
                             </div>
-                        </div>
 
-                {% endblock %}
-            </form>
 
+
+<script>
+function myFunction() {
+    alert(document.getElementById('startFc').value);
+}
+</script>
+                    </div>
+
+
+                 </form>
+            {% endblock %}
             {% block contenedor %}
                 <div style="height :70%; overflow-x: scroll; overflow-y: auto; ">
                     <!--style="height : 500px; overflow-x: scroll; overflow-y: scroll"-->
