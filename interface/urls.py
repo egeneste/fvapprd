@@ -1,7 +1,7 @@
 from django.conf.urls import url
 from .views import *
-
-
+from django.conf import settings
+from django.views.static import serve
 urlpatterns = [
     url(r'^$', index),
     url(r'^lectura/$', lectura),
@@ -14,7 +14,14 @@ urlpatterns = [
     url(r'^grafica-temperatura-vs-tiempo/$', grafTemp),
    # url(r'^articles/([0-9]{4})/([0-9]{5})/([0-9]+)/$', loadDatabase),
     url(r'^datos/(?P<modul>[0-9]+)/(?P<temp>[0-9]+)/(?P<hum>[0-9]+)/$', loadDatabase),
-    url(r'^notifications/(?P<modul>[0-9]+)/(?P<id>[0-9]+)/$', notifications),
-    url(r'^alerts/$', alerta, name='alerts'),
+    url(r'^notifications/$', notifications),#(?P<bstring>\w+)/(?P<fotostring>[\w.@/+\'-]+)
+    url(r'^media/$', alerta, name='alerts'),
     # url(r'^dd/$', loadDatabase)(?P<nic>[0-9]+)
 ]
+
+if settings.DEBUG :
+    urlpatterns += [
+        url(r'^media/(?P<path>.*)$', serve, {
+            'document_root': settings.MEDIA_ROOT,
+        }),
+    ]

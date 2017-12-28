@@ -89,7 +89,7 @@ def main(ser):
                 filename = str(uuid.uuid4()) + '.png'
 
                 print(filename, 'aki')
-                with open('media/photos/'+filename, 'wb') as f:
+                with open(filename, 'wb') as f:
                     f.write(base64.b64decode(foto))
                     time.sleep(2)
                     noti = Alertas()
@@ -110,9 +110,14 @@ def main(ser):
                         print('sensor failed')
                         noti.Tipo = 'Sensor Temp/Humedad failed'
                         idd = 3
+                        #     mm = Module()
+                        #     mm.s_humedad = 'OUT'
+                        #     mm.s_temperatura = 'OUT'
+                        #     mm.save()
+                        #     md = 0
                     else:
                         print('unknown')
-                    noti.alert_image = '/media/photos/%s' %(filename)
+                    noti.alert_image = 'photos/%s' %(filename)
                 try:
                     #sendmail.sensorFailmsg('jfco2058@gmail.com', str(new_msg))
                     #
@@ -141,7 +146,7 @@ def main(ser):
                     # noti.save()
 
 
-                    not_req = requests.get('https://forest-vigilance-rd.herokuapp.com/interface/notifications/%d/%d' % (modd, idd))
+                    not_req = requests.get('https://forest-vigilance-rd.herokuapp.com/interface/notifications/%d/%d/%s' % (modd, idd, foto))
                     print(not_req)
                 except:
                     noti.save()

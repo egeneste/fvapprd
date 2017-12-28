@@ -10,6 +10,7 @@
 
         <td>Tipo de alerta</td>
         <td>Fecha / Hora</td>
+        <td>Image</td>
 
 
     </tr>
@@ -25,6 +26,9 @@
             <td>{{ ob.Tipo }}</td>
             <td>{{ ob.tiempo }}</td>
 
+            <td>
+                <a href='{{ ob.alert_image }}' style="color: #122b40" target="_blank">image</a>
+            </td>
 
 
         </tr>
@@ -33,7 +37,7 @@
 
     <td>{{ ob.Tipo }}</td>
     <td>{{ ob.tiempo }}</td>
-
+    <td>{{ ob.alert_image }}</td>
 
     <!--<script src="scripts/main.js"></script>-->
     </tbody>

@@ -7,6 +7,12 @@ import json
 from django.http import HttpResponse
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
+import uuid, base64
+
+import socket
+import socket
+
+
 
 def index(request):
 
@@ -103,26 +109,45 @@ def loadDatabase(request, modul, temp, hum):
 
     return render(request, 'jjjj.html', {})
 
-def notifications(request, modul, id):
+def notifications(request):
 
-    new_not = Alertas()
-    new_not.modulo = modul
-    print(id)
-    if int(id) == 1:
-        new_not.Tipo = "Sonido"
-    elif int(id) ==2:
-        new_not.Tipo = "Humo"
-    else:
-        new_not.Tipo = "Sensor Temp/Humedad failed"
+   #  new_not = Alertas()
+   # # new_not.modulo = modul
+   #  print(id)
+   #  if int(id) == 1:
+   #      new_not.Tipo = "Sonido"
+   #  elif int(id) ==2:
+   #      new_not.Tipo = "Humo"
+   #  else:
+   #      new_not.Tipo = "Sensor Temp/Humedad failed"
+   #
+   #      # md = get_object_or_404(Module, modulo = '1001')
+   #      # md.s_humedad = 'OUT'
+   #      # md.s_temperatura = 'OUT'
+   #      # md.save()
+    serv = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-        md = get_object_or_404(Module, modulo = '1001')
-        md.s_humedad = 'OUT'
-        md.s_temperatura = 'OUT'
-        md.save()
+    serv_addr = (socket.gethostname(), 50000)
 
-    new_not.save()
+    serv.bind(serv_addr)
+    serv.listen(1)
 
-    return render(request, 'vacio.html', {})
+   #
+   #  connection, client_address = serv.accept()
+   #  #data = connection.recv(1024).decode()
+   #  filename = str(uuid.uuid4()) + '.png'
+   #
+   #  # mystring = fotostring[2:]
+   #  # mybytes = mystring.encode()#bytes(mystring, 'utf-8')
+   #  # with open('media/photos/abc.png', 'wb') as f:
+   #  #      f.write(mybytes)#
+   #  # new_not.alert_image = 'media/photos/'+filename
+   #
+   #(?P<modul>[0-9]+)/(?P<id>[0-9]+)/
+   # # print(mystring, mybytes)
+   #  new_not.save()
+
+    return render(request, 'vacio.html', {'bb': serv_addr})
 def querrys(request, modelo):
     print(request.POST.get('startFC'))
     if request.method == "POST":

@@ -46,3 +46,11 @@ class Alertas(models.Model):
     modulo = models.CharField(max_length=8, null = True)
     Tipo = models.CharField(max_length= 30, null=True)
     tiempo = models.DateTimeField(auto_now=True, null=True)
+
+    alert_image = models.ImageField(blank=True, null=True,
+                    upload_to="photos/%Y/%m/%D")
+
+    # def foto(self):
+    #     #direction = 'http://http://forest-vigilance-rd.herokuapp.com/interface/media/%s' %(self.alert_image)
+    #     direction = '127.0.0.1/interface/media/%s' % (self.alert_image)
+    #     return direction
